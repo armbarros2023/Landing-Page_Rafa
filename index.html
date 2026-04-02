@@ -369,6 +369,18 @@
       font-size: clamp(1.02rem, 1.55vw, 1.16rem);
     }
 
+    .hero-copy p,
+    .section-lead,
+    .objective-copy p,
+    .story-copy p,
+    .photo-card p,
+    .review-copy span,
+    .cta-copy p {
+      text-align: justify;
+      text-align-last: left;
+      text-justify: inter-word;
+    }
+
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
@@ -705,6 +717,7 @@
       margin-top: 4px;
       color: #5b6270;
       font-size: 0.92rem;
+      line-height: 1.65;
     }
 
     .cta {
@@ -806,29 +819,44 @@
     }
 
     @media (max-width: 760px) {
+      .container {
+        width: min(var(--container), calc(100% - 24px));
+      }
+
+      .nav {
+        padding: 10px 0;
+      }
+
       .nav-links,
       .nav .btn-outline {
         display: none;
       }
 
+      .nav-inner {
+        align-items: center;
+      }
+
       .brand {
         gap: 8px;
+        min-width: 0;
       }
 
       .brand-logo {
-        width: 170px;
-        min-height: 92px;
-        padding: 10px 11px 11px;
+        width: 156px;
+        min-height: 82px;
+        padding: 9px 10px 10px;
+        border-radius: 12px;
       }
 
       .brand-logo-name {
-        font-size: 2.0rem;
+        font-size: 1.82rem;
+        line-height: 0.72;
       }
 
       .brand-logo-icon {
-        width: 50px;
-        height: 50px;
-        transform: translate(4px, 6px);
+        width: 44px;
+        height: 44px;
+        transform: translate(3px, 5px);
       }
 
       .brand-copy {
@@ -845,38 +873,277 @@
         display: block;
       }
 
+      .mobile-menu {
+        margin-top: 10px;
+        padding: 16px;
+        border-radius: 24px;
+        box-shadow: var(--shadow-soft);
+      }
+
+      .mobile-menu a {
+        padding: 14px 0;
+      }
+
       .hero {
-        padding-top: 36px;
+        padding: 24px 0 18px;
       }
 
       .hero-grid {
         min-height: auto;
+        gap: 24px;
+      }
+
+      .hero-copy {
+        padding: 0;
+      }
+
+      .hero-copy h1 {
+        margin-top: 0;
+        font-size: clamp(3.4rem, 15vw, 5.2rem);
+        max-width: 7.4ch;
+      }
+
+      .hero-copy p {
+        margin-top: 18px;
+        max-width: none;
+        font-size: 1rem;
+        line-height: 1.75;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        margin-top: 24px;
+      }
+
+      .hero-actions .btn,
+      .cta-actions .btn {
+        width: 100%;
+        min-height: 56px;
+        font-size: 1rem;
+      }
+
+      .hero-points {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 22px;
+      }
+
+      .pill {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 12px 14px;
+      }
+
+      .hero-poster {
+        padding: 10px;
+        border-radius: 28px;
+        box-shadow: 0 28px 64px rgba(0, 0, 0, 0.34);
+      }
+
+      .hero-poster img {
+        border-radius: 20px;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        transform: none;
       }
 
       .hero-stats {
         grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .stat {
+        padding: 18px;
+        border-radius: 22px;
+      }
+
+      .stat strong {
+        font-size: 1.06rem;
       }
 
       .section {
-        padding: 66px 0;
+        padding: 74px 0;
       }
 
       .section-header {
         flex-direction: column;
         align-items: start;
+        gap: 14px;
+        margin-bottom: 22px;
+      }
+
+      .section-title {
+        font-size: clamp(2.6rem, 12vw, 4rem);
+        line-height: 0.92;
+      }
+
+      .section-lead {
+        margin-top: 0;
+        max-width: none;
+        font-size: 0.98rem;
+        line-height: 1.72;
+      }
+
+      .objective-card,
+      .story-card,
+      .story-card.reverse {
+        border-radius: 28px;
+      }
+
+      .story-card.reverse .story-image {
+        order: 1;
+      }
+
+      .story-card.reverse .story-copy {
+        order: 2;
+      }
+
+      .objective-visual,
+      .story-image {
+        padding: 10px;
+      }
+
+      .objective-visual img,
+      .story-image img {
+        border-radius: 18px;
+      }
+
+      .objective-visual img {
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+      }
+
+      .objective-copy,
+      .story-copy {
+        padding: 22px 20px 24px;
+      }
+
+      .objective-copy h3,
+      .story-copy h3,
+      .cta-copy h3 {
+        font-size: clamp(2rem, 9vw, 3.1rem);
+      }
+
+      .objective-copy p,
+      .story-copy p,
+      .photo-card p,
+      .review-copy p,
+      .cta-copy p {
+        line-height: 1.7;
+      }
+
+      .story-copy {
+        text-align: justify;
+        text-wrap: pretty;
+      }
+
+      .objective-copy ul,
+      .story-copy ul {
+        padding-left: 20px;
+      }
+
+      .storyline {
+        gap: 22px;
+      }
+
+      .story-image img {
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+      }
+
+      .bridge-grid {
+        gap: 20px;
+      }
+
+      .photo-card {
+        border-radius: 28px;
+      }
+
+      .photo-card img {
+        aspect-ratio: 4 / 5;
+      }
+
+      .photo-card .photo-copy,
+      .review-copy {
+        padding: 18px 18px 20px;
+      }
+
+      .photo-card h3 {
+        font-size: 1.7rem;
+      }
+
+      .reviews-grid {
+        gap: 20px;
+      }
+
+      .review-card {
+        border-radius: 26px;
+      }
+
+      .review-card img {
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+      }
+
+      .review-copy strong {
+        font-size: 0.98rem;
+        line-height: 1.35;
+      }
+
+      .review-copy span {
+        margin-top: 8px;
+        line-height: 1.6;
       }
 
       .cta {
-        padding-bottom: 78px;
+        padding: 18px 0 82px;
       }
 
       .cta-card {
-        padding: 24px;
+        padding: 26px 20px;
+        border-radius: 28px;
+      }
+
+      .cta-actions {
+        flex-direction: column;
+        align-items: stretch;
       }
 
       .footer-inner {
         flex-direction: column;
         align-items: start;
+        gap: 10px;
+      }
+
+      .float-whatsapp {
+        right: 14px;
+        bottom: 14px;
+        width: 56px;
+        height: 56px;
+        border-radius: 16px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero-copy h1 {
+        font-size: clamp(3rem, 16vw, 4.5rem);
+      }
+
+      .section-title {
+        font-size: clamp(2.3rem, 11.5vw, 3.3rem);
+      }
+
+      .objective-copy,
+      .story-copy,
+      .photo-card .photo-copy,
+      .review-copy,
+      .cta-card {
+        padding-left: 18px;
+        padding-right: 18px;
       }
     }
 
@@ -949,11 +1216,6 @@
             Sua igreja quer ser acolhedora na prática? Esta landing organiza a jornada do curso em ordem cronológica, com objetivo, módulos, bastidores e depoimentos para conduzir a pessoa até o próximo passo.
           </p>
 
-          <div class="hero-actions reveal delay-3">
-            <a class="btn btn-primary" href="https://www.sympla.com.br/evento/imersao-igreja-acolhedora/3349853" target="_blank" rel="noopener noreferrer">Ir para o pagamento</a>
-            <a class="btn btn-secondary" href="#objetivo">Ver a proposta</a>
-          </div>
-
           <div class="hero-points reveal delay-3">
             <div class="pill"><span></span>Base bíblica</div>
             <div class="pill"><span></span>Acolhimento prático</div>
@@ -984,15 +1246,6 @@
 
     <section class="section" id="objetivo">
       <div class="container">
-        <div class="section-header">
-          <div>
-            <h2 class="section-title reveal delay-1">Renovar a leitura da igreja sobre acolhimento e inclusão.</h2>
-          </div>
-          <p class="section-lead reveal delay-2">
-            O curso começa pela base teológica e prática: entender a dignidade da pessoa, o valor da diversidade e o papel da igreja em construir comunidades mais hospitaleiras.
-          </p>
-        </div>
-
         <article class="objective-card reveal">
           <div class="objective-visual">
             <img src="/Fotos%20Landing%20Page%20Rafa/59362a00-f3e2-409c-8eb1-0775ed16be13.jpeg" alt="Slide de objetivo do curso sobre igreja acolhedora, teologia e neurodiversidade" loading="lazy">
@@ -1015,45 +1268,18 @@
 
     <section class="section" id="modulos">
       <div class="container">
-        <div class="section-header">
-          <div>
-            <h2 class="section-title reveal delay-1">O conteúdo avança em uma sequência lógica e memorável.</h2>
-          </div>
-          <p class="section-lead reveal delay-2">
-            Cada módulo tem sua própria imagem, título e objetivo, mantendo a história visual intacta e fácil de acompanhar.
-          </p>
-        </div>
-
         <div class="storyline" id="storyline"></div>
       </div>
     </section>
 
     <section class="section" id="bastidores">
       <div class="container">
-        <div class="section-header">
-          <div>
-            <h2 class="section-title reveal delay-1">Imagens de palco, atenção e comunidade em movimento.</h2>
-          </div>
-          <p class="section-lead reveal delay-2">
-            Depois dos módulos, a página entra nos bastidores para mostrar a experiência ao vivo e a força do encontro com pessoas reais.
-          </p>
-        </div>
-
         <div class="bridge-grid" id="btsGrid"></div>
       </div>
     </section>
 
     <section class="section" id="reviews">
       <div class="container">
-        <div class="section-header">
-          <div>
-            <h2 class="section-title reveal delay-1">Depoimentos reais para reforçar confiança.</h2>
-          </div>
-          <p class="section-lead reveal delay-2">
-            Os screenshots de avaliação entram no final como validação emocional e social, reforçando o valor percebido da imersão.
-          </p>
-        </div>
-
         <div class="reviews-grid" id="reviewsGrid"></div>
       </div>
     </section>
